@@ -1,3 +1,6 @@
+import random
+from typing import List, Set
+
 # polynomial rolling hash function
 # s : string
 # s[0]+s[1]*p + s[2]*(p**2) + .. + s[n-1]*(p**(n-1))
@@ -13,8 +16,6 @@ def stringHashing(text:str)->int:
 def polynomialHashing(x,a,b):
   p = 10**9+7
   return (a*x+b)%p
-
-import random
 
 class MinHashing(object):
     def __init__(self, num_perm, n_shingles):
@@ -35,12 +36,12 @@ class MinHashing(object):
     def getShingles(self, text:str, n_shingles:int) -> List:
         result = [text[i:i+n_shingles] for i in range(len(text)-n_shingles)]
         return list(set(result))
-    
+     # with out speed up
     def minHashing(self, shingles, a, b):
         result = -1
         for shingle in shingles:
-            sh = stringHashing(shingle)
-            h = polynomialHashing(sh,a,b)
+            sh = self.stringHashing(shingle)
+            h = self.polynomialHashing(sh,a,b)
             if result==-1:
                 result = h
             else:
