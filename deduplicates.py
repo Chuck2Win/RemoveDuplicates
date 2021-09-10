@@ -5,7 +5,7 @@ def remove_duplicates(graph):
     temp = list(graph.keys())
     temp2 = temp.copy()
     for i in temp:
-        for j in graph[i].keys():
+        for j in graph[i]:
                 try:
                     temp2.remove(j)
                 except:
