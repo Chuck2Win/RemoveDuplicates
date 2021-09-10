@@ -1,4 +1,5 @@
 from datasketch import MinHash, MinHashLSH
+import xxhash
 from typing import List,Dict,Tuple,Set
 import os
 import re
